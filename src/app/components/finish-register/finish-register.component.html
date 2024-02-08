@@ -1,9 +1,7 @@
 <div>
     <h3>Bienvenido(a) {{ employeeData.first_name }} {{ employeeData.last_name }}</h3>
-    <p>Número de empleado: {{ employeeData.employee_number }}</p>
-    <p>Correo electrónico: {{ employeeData.employee_email }}</p>
-
-    <h3>Completa tu registro subiendo tu foto</h3>
-
-    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <h4>Tu asistencia ha sido guardada, de forma existosa.</h4>
+    <p>Fecha: {{ asistData.date }}</p>
+    <p>hora de entrada: {{ asistData.entry_time }}</p>
+    <img src="https://png.pngtree.com/png-vector/20221123/ourmid/pngtree-checklist-icon-clipart-png-image_6477552.png" alt="success">
 </div>

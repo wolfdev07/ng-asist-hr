@@ -10,17 +10,20 @@ import { Component } from '@angular/core';
 export class FinishRegisterComponent {
 
   employeeData: any; // Declaración de la propiedad datosEmpleado
-
+  asistData: any;
   constructor() { }
 
   ngOnInit(): void {
     // Recuperar el objeto guardado en localStorage
     const datosGuardadosString = localStorage.getItem('employeeData');
+    const masDatosGuardadosString = localStorage.getItem('attendanceData');
     // Verificar si se recuperaron los datos correctamente
-    if (datosGuardadosString !== null) {
+    if (datosGuardadosString !== null && masDatosGuardadosString !== null) {
       const datosGuardados = JSON.parse(datosGuardadosString);
+      const datosAsistencia =  JSON.parse(masDatosGuardadosString);
       // Asignar los datos a una propiedad del componente para poder acceder a ellos en el template HTML
       this.employeeData = datosGuardados;
+      this.asistData= datosAsistencia;
     }
   }
 
