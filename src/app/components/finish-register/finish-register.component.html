@@ -1,0 +1,9 @@
+<div>
+    <h3>Bienvenido(a) {{ employeeData.first_name }} {{ employeeData.last_name }}</h3>
+    <p>Número de empleado: {{ employeeData.employee_number }}</p>
+    <p>Correo electrónico: {{ employeeData.employee_email }}</p>
+
+    <h3>Completa tu registro subiendo tu foto</h3>
+
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+</div>

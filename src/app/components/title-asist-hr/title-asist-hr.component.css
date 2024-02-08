@@ -1,0 +1,18 @@
+header {
+    text-align: center;
+    min-height: 15vh;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    background: linear-gradient(to top,  #FFA500, #FF6347); /* Degradado de abajo hacia arriba en tonos de naranja */
+    -webkit-background-clip: text; /* Clip de texto para aplicar el degradado */
+    -webkit-text-fill-color: transparent; /* Color de texto transparente para que el degradado se muestre */
+}
+
+p {
+    padding: 0%;
+    margin: 0%;
+}

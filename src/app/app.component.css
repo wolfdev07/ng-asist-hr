@@ -1,0 +1,5 @@
+section {
+    min-height: 75vh;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;
+}

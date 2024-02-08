@@ -1,0 +1,33 @@
+@if (registerEmployee) {
+    <div>
+
+        <mat-form-field>
+            <mat-label>Numero de empleado</mat-label>
+            <input matInput maxlength="10" placeholder="Numero de empleado" [formControl]="employeeNumber" required>
+            
+            @if (employeeNumber.invalid) {
+            <mat-error>{{getErrorEmployeeNumber()}}</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Ingresa tu email</mat-label>
+            <input matInput placeholder="Ingresa tu email" [formControl]="email" required>
+            @if (email.invalid) {
+            <mat-error>{{getErrorMessage()}}</mat-error>
+            }
+        </mat-form-field>
+        
+        <input class="file-input" type="file" (change)="handleFileInput($event)">
+
+        <div class="form-footer">
+            <button (click)="sendData()" mat-raised-button color="primary">Registrar</button>
+            <button (click)="registerEmployee = false" mat-raised-button color="warn">Cancelar</button>
+        </div>
+    </div>
+} @else {
+    <div>
+        <img src="https://static.vecteezy.com/system/resources/previews/027/309/403/non_2x/office-employee-with-ai-generated-free-png.png" alt="employee">
+        <button (click)="registerEmployee = true" mat-raised-button color="primary">Registrar Asistencia</button>
+    </div>
+}
