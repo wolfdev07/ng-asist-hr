@@ -1,0 +1,18 @@
+{
+  "hosting": {
+    "site": "asisthr",
+    "public": "dist/asist-hr/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html",
+        "function": "proxy"
+      }
+    ]
+  }
+}
