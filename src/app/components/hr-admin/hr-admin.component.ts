@@ -2,6 +2,14 @@ import {AfterViewInit, Component, ViewChild, Inject} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import { FormControl } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { Router } from '@angular/router'
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -19,14 +27,32 @@ export interface Employee {
 @Component({
   selector: 'app-hr-admin',
   standalone: true,
-  imports: [MatTableModule, 
+  imports: [
+    MatTableModule, 
     MatPaginatorModule,
+    MatButtonModule, 
+    MatDividerModule, 
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
     ],
   templateUrl: './hr-admin.component.html',
   styleUrl: './hr-admin.component.css'
 })
 
 export class HrAdminComponent implements AfterViewInit {
+
+  newRegister= false;
+
+  employee_name: FormControl = new FormControl('');
+  employee_lastname: FormControl = new FormControl('');
+  employee_email: FormControl = new FormControl('');
+  employee_number: FormControl = new FormControl('');
+
+  createNewEmployee(){
+    console.info(this.employee_name.value);
+  }
+
 
   displayedColumns: string[] = ['id', 'employee_number', 'employee_email', 'first_name', 'last_name'];
   dataSource = new MatTableDataSource<Employee>();

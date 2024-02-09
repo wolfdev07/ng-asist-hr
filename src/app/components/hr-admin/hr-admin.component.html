@@ -1,47 +1,77 @@
-<section>
-    <p>Espacio para agregar</p>
-</section>
+@if(newRegister){
 
-<section>
+    <section>
+        <button (click)="newRegister = false" mat-raised-button color="warn">Regresar</button>
+    </section>
+    <section>
+        <mat-form-field>
+            <mat-label>Numero de empleado</mat-label>
+            <input matInput maxlength="10" placeholder="Numero de empleado" required>
+            
+        </mat-form-field>
 
-    <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
-            <!-- ID Column -->
-            <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>ID</th>
-            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-            </ng-container>
-    
-            <!-- Employee Number Column -->
-            <ng-container matColumnDef="employee_number">
-            <th mat-header-cell *matHeaderCellDef>Numero</th>
-            <td mat-cell *matCellDef="let element">{{ element.employee_number }}</td>
-            </ng-container>
-    
-            <!-- Employee Email Column -->
-            <ng-container matColumnDef="employee_email">
-            <th mat-header-cell *matHeaderCellDef>Email</th>
-            <td mat-cell *matCellDef="let element">{{ element.employee_email }}</td>
-            </ng-container>
-    
-            <!-- First Name Column -->
-            <ng-container matColumnDef="first_name">
-            <th mat-header-cell *matHeaderCellDef>Nombre</th>
-            <td mat-cell *matCellDef="let element">{{ element.first_name }}</td>
-            </ng-container>
-    
-            <!-- Last Name Column -->
-            <ng-container matColumnDef="last_name">
-            <th mat-header-cell *matHeaderCellDef>Apellido</th>
-            <td mat-cell *matCellDef="let element">{{ element.last_name }}</td>
-            </ng-container>
-    
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
-    </div>
+        <mat-form-field>
+            <mat-label>Ingresa tu email</mat-label>
+            <input matInput placeholder="Ingresa tu email" required>
+        </mat-form-field>
+        
 
-</section>
+        <div class="form-footer">
+            <button  mat-raised-button color="primary">Registrar</button>
+        </div>
+    </section>
+
+} @else {
+
+    <section>
+        <button (click)="newRegister = true"  mat-raised-button color="primary">Anadir Empleado</button>
+    </section>
+    
+    <section>
+    
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+                </ng-container>
+        
+                <!-- Employee Number Column -->
+                <ng-container matColumnDef="employee_number">
+                <th mat-header-cell *matHeaderCellDef>Numero</th>
+                <td mat-cell *matCellDef="let element">{{ element.employee_number }}</td>
+                </ng-container>
+        
+                <!-- Employee Email Column -->
+                <ng-container matColumnDef="employee_email">
+                <th mat-header-cell *matHeaderCellDef>Email</th>
+                <td mat-cell *matCellDef="let element">{{ element.employee_email }}</td>
+                </ng-container>
+        
+                <!-- First Name Column -->
+                <ng-container matColumnDef="first_name">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let element">{{ element.first_name }}</td>
+                </ng-container>
+        
+                <!-- Last Name Column -->
+                <ng-container matColumnDef="last_name">
+                <th mat-header-cell *matHeaderCellDef>Apellido</th>
+                <td mat-cell *matCellDef="let element">{{ element.last_name }}</td>
+                </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
+        </div>
+    
+    </section>
+
+}
+
+
+
