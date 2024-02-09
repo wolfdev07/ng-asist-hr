@@ -1,0 +1,26 @@
+section {
+    padding: 5%;
+
+}
+
+section div {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-radius: 2%;
+    padding: 0%;
+}
+
+
+table {
+    width: 100%;
+}
+
+tbody {
+    overflow: hidden;
+}
+
+.mat-column-select {
+    overflow: initial;
+}
