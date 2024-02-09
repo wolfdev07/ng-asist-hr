@@ -1,4 +1,11 @@
 <header>
+    <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <a mat-menu-item href="https://www.google.com/">Administracion</a>
+        <a mat-menu-item href="https://www.google.com/">Soporte</a>
+    </mat-menu>
     <h1>Asist HR</h1>
-    <p>adminsitracion de capital humano</p>
+    <p>Adminsitracion De Capital Humano</p>
 </header>

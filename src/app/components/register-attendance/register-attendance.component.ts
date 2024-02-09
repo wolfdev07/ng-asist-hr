@@ -5,6 +5,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -43,7 +44,12 @@ export class RegisterAttendanceComponent {
     return '';
   }
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router,
+    private toastr: ToastrService) {}
+  
+  showError(text: string, title: string = 'Error') {
+    this.toastr.error(text, title)
+  }
 
   sendData() {
     if (this.email.valid && this.employeeNumber.valid) {
@@ -54,8 +60,8 @@ export class RegisterAttendanceComponent {
       };
 
       console.info(datos);
-
-      this.http.post('https://asist-hr-docker-wdljqqaghq-oc.a.run.app/asistApi/lookup/', datos)
+      //https://asist-hr-docker-wdljqqaghq-oc.a.run.app
+      this.http.post('http://127.0.0.1:8000/asistApi/lookup/', datos)
         .subscribe(
           response => {
             console.log('Respuesta del servidor:', response);
@@ -66,6 +72,7 @@ export class RegisterAttendanceComponent {
           error => {
             console.error('Error al enviar datos:', error);
             // Puedes manejar los errores aquí
+            this.showError(error.error.message);
           }
         );
     } else {
@@ -91,7 +98,7 @@ export class RegisterAttendanceComponent {
     formData.append('photo', photo);
 
     // Enviar el FormData al backend
-    this.http.post('https://asist-hr-docker-wdljqqaghq-oc.a.run.app/asistApi/attendance/', formData)
+    this.http.post('http://127.0.0.1:8000/asistApi/attendance/', formData)
       .subscribe(
         response => {
           console.log('Respuesta del servidor:', response);
@@ -102,6 +109,7 @@ export class RegisterAttendanceComponent {
         error => {
           console.error('Error al enviar datos:', error);
           // Puedes manejar los errores aquí
+          this.showError(error.error.message);
         }
       );
   }
