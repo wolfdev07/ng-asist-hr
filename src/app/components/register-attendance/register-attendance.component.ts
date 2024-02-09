@@ -62,7 +62,7 @@ export class RegisterAttendanceComponent {
       console.info(datos);
       //https://backend-hr-w7ws2dwj5a-ew.a.run.app/
       //http://127.0.0.1:8000/
-      this.http.post('http://127.0.0.1:8000/asistApi/lookup/', datos)
+      this.http.post('https://backend-hr-w7ws2dwj5a-ew.a.run.app/asistApi/lookup/', datos)
         .subscribe(
           response => {
             console.log('Respuesta del servidor:', response);
@@ -99,7 +99,7 @@ export class RegisterAttendanceComponent {
     formData.append('photo', photo);
 
     // Enviar el FormData al backend
-    this.http.post('http://127.0.0.1:8000/asistApi/attendance/', formData)
+    this.http.post('https://backend-hr-w7ws2dwj5a-ew.a.run.app/asistApi/attendance/', formData)
       .subscribe(
         response => {
           console.log('Respuesta del servidor:', response);
