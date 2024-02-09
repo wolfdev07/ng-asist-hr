@@ -24,3 +24,7 @@ tbody {
 .mat-column-select {
     overflow: initial;
 }
+
+button {
+    align-self: end;
+}

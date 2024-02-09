@@ -4,21 +4,39 @@
         <button (click)="newRegister = false" mat-raised-button color="warn">Regresar</button>
     </section>
     <section>
-        <mat-form-field>
-            <mat-label>Numero de empleado</mat-label>
-            <input matInput maxlength="10" placeholder="Numero de empleado" required>
-            
-        </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Ingresa tu email</mat-label>
-            <input matInput placeholder="Ingresa tu email" required>
-        </mat-form-field>
+        <div>
+            <mat-form-field>
+                <mat-label>Numero de empleado</mat-label>
+                <input matInput maxlength="10" placeholder="Numero de empleado" [formControl]="new_employee_number" required>
+                <mat-error *ngIf="new_employee_number.invalid">{{ getErrorEmployeeNumber() }}</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ingresa tu email" [formControl]="new_employee_email" required>
+                <mat-error *ngIf="new_employee_email.invalid">{{ getErrorMessage() }}</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre del empleado" [formControl]="new_employee_name" required>
+                <mat-error *ngIf="new_employee_name.invalid">Campo Obligatorio</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input matInput placeholder="Apellido del empleado" [formControl]="new_employee_lastname" required>
+                <mat-error *ngIf="new_employee_lastname.invalid">Campo Obligatorio</mat-error>
+            </mat-form-field>
+        </div>
         
 
-        <div class="form-footer">
-            <button  mat-raised-button color="primary">Registrar</button>
-        </div>
+        <button (click)="createNewEmployee()" mat-raised-button color="primary">
+            Registrar
+        </button>
+
+
     </section>
 
 } @else {
